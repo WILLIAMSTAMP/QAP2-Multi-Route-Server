@@ -12,17 +12,6 @@ const EventEmitter = require('events');
 const { strict } = require('assert');
 const eventEmitter = new EventEmitter ();
 
-// eventEmitter.on('404', () => {
-//     console.log('404: Page not found...redirecting to home');
-//   });
-// //   eventEmitter.on('301', () => {
-// //     console.log('301: redirecting to ' + path);
-// //   });
-//   eventEmitter.on('200', () => {
-//     console.log('200: Page loaded successfully');
-//     console.log("UserName: ", process.env.USERDOMAIN)
-//   });
-
 // Create a new HTTP server object.
 const server = http.createServer((req, res) => {
 // logs a msg to the console when a request is made.
@@ -39,7 +28,6 @@ switch(req.url) {
         path += "index.html";
         res.statusCode = 200;
         routes.indexPage(path, req.url, res);
-        // eventEmitter.emit('200', 'event occurred');
         console.log("Homepage")
         break;
 
@@ -47,7 +35,6 @@ switch(req.url) {
         path += "about.html";
         res.statusCode = 200;
         routes.aboutPage(path, req.url, res);
-        // eventEmitter.emit('200');
         console.log("About Page");
         break;
 
@@ -62,7 +49,6 @@ switch(req.url) {
         path += "contact.html";
         res.statusCode = 200;
         routes.contactPage(path, req.url, res);
-        // eventEmitter.emit('200');
         console.log("Contact page");
         break;
 
@@ -70,7 +56,6 @@ switch(req.url) {
         path += "products.html";
         res.statusCode = 200;
         routes.productsPage(path, req.url, res);
-        // eventEmitter.emit('200');
         console.log("Product page");
         break;
 
@@ -78,7 +63,6 @@ switch(req.url) {
         path += "subscribe.html";
         res.statusCode = 200;
         routes.subscribePage(path, req.url, res);
-        // eventEmitter.emit('200');
         console.log("Subscribe page")
         break;
 
@@ -104,8 +88,6 @@ switch(req.url) {
         path += '404.html';
         res.statusCode = 404;
         routes.fourOfourPage(path, req.url, res);
-        // eventEmitter.emit('404');
-        
         break;
 }
 
@@ -113,6 +95,6 @@ switch(req.url) {
 
 server.listen(8000, 'localhost', () => {
 //  Listen for requests on port 8000.
-    console.log('listening on port 8000 for requests');
+console.log('listening on port 8000 for requests');
 // Logs a message to the console that the server was started.
 });
