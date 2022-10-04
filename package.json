@@ -1,0 +1,20 @@
+{
+  "name": "williamstamp-qap2",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "devStart": "nodemon express.js"
+  },
+  "dependencies": {
+    "date-fns": "2.28.0",
+    "my-google-news": "^3.0.0",
+    "scripts": "^0.1.0",
+    "uuid": "8.3.2"
+  },
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
