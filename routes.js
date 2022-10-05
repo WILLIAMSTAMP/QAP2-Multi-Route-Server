@@ -2,9 +2,8 @@ const fs = require('fs');
 const EventEmitter = require('events');
 class MyEmitter extends EventEmitter {};
 const myEmitter = new MyEmitter();
-
-
 const logEvents = require('./logEvents');
+
 
 myEmitter.addListener('route', (event, level, msg, statusCode) => {
     const d = new Date();
@@ -17,11 +16,9 @@ function indexPage(path, event, res) {
     myEmitter.emit('route', event, 'information--', 'the home page was visited.', "StatusCode:" + res.statusCode);
 }
  
-
 function aboutPage(path, event, res, req) {
     displayFile(path, res);
     myEmitter.emit('route', event, 'information--', 'the about page was visited.', "StatusCode:" + res.statusCode);
-
 }
 
 function contactPage(path, event, res) {
@@ -39,11 +36,9 @@ function productsPage(path, event, res) {
     myEmitter.emit('route', event, 'information--', 'the products page was visited.', "StatusCode:" + res.statusCode);
 }
 
-
 function fourOfourPage(path, event, res) {
     displayFile(path, res);
-    myEmitter.emit('route', event, 'error', 'page not found ' +  event + ' route.', "StatusCode:" + res.statusCode);
-   
+    myEmitter.emit('route', event, 'error', 'page not found ' +  event + ' route.', "StatusCode:" + res.statusCode);  
 }
 
 function coffeeePage(path, event, res) {
