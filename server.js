@@ -1,16 +1,18 @@
 // William Stamp 
 // QAP2 -- Multi-Route Server
 // October 04 2022
+
 // ---------------------------------------------------------------------------------------
 // Require the http module.
 const http = require('http');
 
-const routes = require('./routes.js');
 // The Node.js file system module allows you to work with the file system on your computer.
+const routes = require('./routes.js');
 
 const EventEmitter = require('events');
-const { strict } = require('assert');
 const eventEmitter = new EventEmitter ();
+// const { strict } = require('assert');
+
 
 // Create a new HTTP server object.
 const server = http.createServer((req, res) => {
@@ -22,6 +24,7 @@ console.log("page url = " + req.url)
 //  sets header content type 
 res.setHeader('Content-Type', 'text/html')
 
+// switch cases and routes
 let path = './views/';
 switch(req.url) {
     case "/":
@@ -90,11 +93,10 @@ switch(req.url) {
         routes.fourOfourPage(path, req.url, res);
         break;
 }
-
 });
 
-server.listen(8000, 'localhost', () => {
 //  Listen for requests on port 8000.
-console.log('listening on port 8000 for requests');
+server.listen(8000, 'localhost', () => {
 // Logs a message to the console that the server was started.
+console.log('listening on port 8000 for requests');
 });
